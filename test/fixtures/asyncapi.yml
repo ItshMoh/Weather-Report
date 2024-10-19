@@ -1,0 +1,92 @@
+asyncapi: 2.6.0
+info:
+  title: Weather Alerts Service
+  version: 1.0.0
+  description: This service processes real-time weather alerts for specific conditions such as rain, snow, and extreme heat.
+
+servers:
+  dev:
+    url: test.mosquitto.org
+    protocol: mqtt
+
+channels:
+  weather/rain:
+    description: Notifies the user when rain is detected.
+    publish:
+      operationId: rainAlert
+      message:
+        description: Message sent when rain is detected.
+        payload:
+          type: object
+          additionalProperties: false
+          properties:
+            alertId:
+              type: string
+            location:
+              type: string
+            intensity:
+              type: string
+
+  weather/snow:
+    description: Notifies the user when snow is detected.
+    publish:
+      operationId: snowAlert
+      message:
+        description: Message sent when snow is detected.
+        payload:
+          type: object
+          additionalProperties: false
+          properties:
+            alertId:
+              type: string
+            location:
+              type: string
+            intensity:
+              type: string
+
+  weather/heatwave:
+    description: Notifies the user when a heatwave is detected.
+    publish:
+      operationId: heatwaveAlert
+      message:
+        description: Message sent when a heatwave is detected.
+        payload:
+          type: object
+          additionalProperties: false
+          properties:
+            alertId:
+              type: string
+            location:
+              type: string
+            temperature:
+              type: number
+
+  weather/normal:
+    description: Notifies the user when the weather is normal.
+    publish:
+      operationId: normalAlert
+      message:
+        description: Message sent when the weather is normal.
+        payload:
+          type: object
+          additionalProperties: false
+          properties:
+            alertId:
+              type: string
+            location:
+              type: string
+            temperature:
+              type: number   
+                       
+components:
+  schemas:
+    WeatherAlert:
+      type: object
+      additionalProperties: false
+      properties:
+        alertId:
+          type: string
+        location:
+          type: string
+        intensity:
+          type: string
