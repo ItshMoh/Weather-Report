@@ -12,4 +12,6 @@ This is a Project that utilizes the AsyncAPI templates to generate code to know 
 7. You will get prompt to enter the location of which you want to know the weather details.
 8. After entering the location  you will get the weather details.
 
+![Weather Report](weather_readme.png)
+
 For More information about the Templates and Generator go to https://www.asyncapi.com/docs/tools/generator/generator-template .
